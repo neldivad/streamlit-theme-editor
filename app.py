@@ -225,7 +225,7 @@ with st.sidebar:
     st.subheader('Select chart theme')
     chart_options = ['gecko3', 'gecko5', 'gecko7', 'ilo', 'tableau', 'google']
     
-    chart_theme = st.selectbox(chart_options)
+    chart_theme = st.selectbox('Select theme', options=chart_options)
 
 initialize_plotly_themes()
 ts= create_line_simulation()

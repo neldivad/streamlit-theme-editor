@@ -217,6 +217,10 @@ def create_line_simulation():
     df = pd.DataFrame(data)
     return df
 
+with st.sidebar():
+    st.write('seee')
+    pass
+
 initialize_plotly_themes()
 ts= create_line_simulation()
 st.write(ts)

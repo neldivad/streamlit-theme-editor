@@ -222,8 +222,10 @@ def create_line_simulation():
     return df
 
 with st.sidebar:
-    st.write('seee')
-    pass
+    st.subheader('Select chart theme'):
+    chart_options = ['gecko3', 'gecko5', 'gecko7', 'ilo']
+    
+    chart_theme = st.selectbox(chart_options)
 
 initialize_plotly_themes()
 ts= create_line_simulation()
@@ -237,6 +239,6 @@ fig4 = make_grouped_line_chart(
     date_col='date', 
     resample_freq='Y', 
     stacked=False,
-    theme='gecko5'
+    theme=chart_options
 )
 st.plotly_chart(fig4, use_container_width=True)

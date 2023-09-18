@@ -94,7 +94,42 @@ def initialize_plotly_themes():
             'yaxis': {'gridcolor': 'grey'},
         }
     )
-
+    pio.templates["tableau"] = go.layout.Template(
+        layout={
+            'colorway': ColorDiscrete.tableau,
+            'plot_bgcolor': 'rgba(0,0,0,0)',
+            'paper_bgcolor': 'rgba(0,0,0,0)',
+            'xaxis': {'gridcolor': 'grey'},
+            'yaxis': {'gridcolor': 'grey'},
+        }
+    )
+    pio.templates["ilo"] = go.layout.Template(
+        layout={
+            'colorway': ColorDiscrete.ilo,
+            'plot_bgcolor': 'rgba(0,0,0,0)',
+            'paper_bgcolor': 'rgba(0,0,0,0)',
+            'xaxis': {'gridcolor': 'grey'},
+            'yaxis': {'gridcolor': 'grey'},
+        }
+    )
+    pio.templates["d3"] = go.layout.Template(
+        layout={
+            'colorway': ColorDiscrete.d3,
+            'plot_bgcolor': 'rgba(0,0,0,0)',
+            'paper_bgcolor': 'rgba(0,0,0,0)',
+            'xaxis': {'gridcolor': 'grey'},
+            'yaxis': {'gridcolor': 'grey'},
+        }
+    )
+    pio.templates["google"] = go.layout.Template(
+        layout={
+            'colorway': ColorDiscrete.google,
+            'plot_bgcolor': 'rgba(0,0,0,0)',
+            'paper_bgcolor': 'rgba(0,0,0,0)',
+            'xaxis': {'gridcolor': 'grey'},
+            'yaxis': {'gridcolor': 'grey'},
+        }
+    )
 
 #---
 # Charting

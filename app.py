@@ -239,6 +239,6 @@ fig4 = make_grouped_line_chart(
     date_col='date', 
     resample_freq='Y', 
     stacked=False,
-    theme=chart_options
+    theme=chart_theme
 )
 st.plotly_chart(fig4, use_container_width=True)

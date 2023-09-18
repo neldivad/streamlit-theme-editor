@@ -7,7 +7,11 @@ import util
 from util import ThemeColor
 from charting import *
 
-
+st.set_page_config(
+  layout="wide",
+  initial_sidebar_state="expanded",
+)
+    
 preset_colors: list[tuple[str, ThemeColor]] = [
     ("Default light", ThemeColor(
             primaryColor="#ff4b4b",

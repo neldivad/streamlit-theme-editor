@@ -221,7 +221,7 @@ def create_line_simulation():
     df = pd.DataFrame(data)
     return df
 
-with st.sidebar():
+with st.sidebar:
     st.write('seee')
     pass
 

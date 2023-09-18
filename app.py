@@ -222,7 +222,7 @@ def create_line_simulation():
     return df
 
 with st.sidebar:
-    st.subheader('Select chart theme'):
+    st.subheader('Select chart theme')
     chart_options = ['gecko3', 'gecko5', 'gecko7', 'ilo', 'tableau', 'google']
     
     chart_theme = st.selectbox(chart_options)

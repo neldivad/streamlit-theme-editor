@@ -5,6 +5,7 @@ import streamlit as st
 import fragments
 import util
 from util import ThemeColor
+from charting import *
 
 
 preset_colors: list[tuple[str, ThemeColor]] = [
@@ -182,3 +183,51 @@ if st.checkbox("Apply theme to this page"):
     fragments.sample_components("body")
     with st.sidebar:
         fragments.sample_components("sidebar")
+
+
+#--------
+# Custom
+#----------
+import pandas as pd
+import numpy as np
+import random
+
+def create_line_simulation():
+    def random_timeseries(initial_value: float, volatility: float, count: int, trend: float = 0.0) -> list:
+        time_series = [initial_value]
+        for _ in range(count - 1):
+            next_value = time_series[-1] + initial_value * random.gauss(0.2, 0.4) * volatility + trend
+            time_series.append(next_value)
+        return time_series
+
+    
+    months = pd.date_range(start='2019-01-01', end='2021-12-01', freq='MS')
+    categories = [f'Category_{i+1}' for i in range(12)]
+    
+    values = []
+    for _ in categories:
+        cat_values = random_timeseries(initial_value=random.uniform(100,100), volatility=0.2, count=len(months), trend=2)
+        values.extend(cat_values)
+
+    data = {
+        'date': np.tile(months, len(categories)),
+        'category': np.repeat(categories, len(months)),
+        'value': values
+    }
+    df = pd.DataFrame(data)
+    return df
+
+ts= create_line_simulation()
+st.write(ts)
+
+
+fig4 = make_grouped_line_chart(
+    ts, 
+    group_col='category', 
+    value_col='value', 
+    date_col='date', 
+    resample_freq='Y', 
+    stacked=False,
+    theme='gecko5'
+)
+st.plotly_chart(fig4, use_container_width=True)

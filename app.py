@@ -217,6 +217,7 @@ def create_line_simulation():
     df = pd.DataFrame(data)
     return df
 
+initialize_plotly_themes()
 ts= create_line_simulation()
 st.write(ts)
 

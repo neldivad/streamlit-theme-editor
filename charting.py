@@ -29,6 +29,8 @@ class ColorDiscrete:
   gecko7 = ['#004457', '#567583', '#9baab1', '#e2e2e2', '#b8e8e3', '#83ede3', '#05f1e3']
   gecko5 = ['#004457', '#798f9a', '#e2e2e2', '#a0ebe3', '#05f1e3']
   gecko3 = ['#004457', '#798f9a', '#05f1e3']
+
+  gecko_v1 = ['#00989d', '#2438a3', '#02605a', '#004457', '#567583']
     
 GECKO_LOGO = Image.open("./resources/BlackShortText_Logo_Horizontal-long.png")
 
@@ -66,6 +68,16 @@ def legend_settings_dark(orientation='v', max_per_row=7):
 # Theme config
 #---
 def initialize_plotly_themes():
+    pio.templates["gecko_v1"] = go.layout.Template(
+        layout={
+            'colorway': ColorDiscrete.gecko_v1,
+            'plot_bgcolor': 'rgba(0,0,0,0)',
+            'paper_bgcolor': 'rgba(0,0,0,0)',
+            'xaxis': {'gridcolor': 'grey'},
+            'yaxis': {'gridcolor': 'grey'},
+        }
+    )
+
     pio.templates["gecko7"] = go.layout.Template(
         layout={
             'colorway': ColorDiscrete.gecko7,

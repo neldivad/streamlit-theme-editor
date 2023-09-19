@@ -256,17 +256,20 @@ df = create_toy_df()
 
 st.write(ts)
 
-fig4 = make_grouped_line_chart(
+fig1 = make_grouped_line_chart(
     ts, 
     group_col='category', 
     value_col='value', 
     date_col='date', 
-    resample_freq='Y', 
+    resample_freq='Q', 
     stacked=False,
     theme=chart_theme
 )
-st.plotly_chart(fig4, use_container_width=True)
+st.plotly_chart(fig1, use_container_width=True)
 
 
 st.write(df)
+fig2 = make_donut_chart(
+    df, group_col='category', value_col='financed_emissions', center_text='Pie chart',
+)
 

@@ -246,7 +246,7 @@ def create_line_simulation():
 
 with st.sidebar:
     st.subheader('Select chart theme')
-    chart_options = ['gecko3', 'gecko5', 'gecko7', 'ilo', 'tableau', 'google']
+    chart_options = ['gecko3', 'gecko5', 'gecko7', 'gecko_v1', 'ilo', 'tableau', 'google']
     
     chart_theme = st.selectbox('Select theme', options=chart_options)
 

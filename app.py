@@ -272,4 +272,3 @@ st.write(df)
 fig2 = make_donut_chart(
     df, group_col='category', value_col='financed_emissions', center_text='Pie chart',
 )
-

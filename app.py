@@ -196,6 +196,29 @@ import pandas as pd
 import numpy as np
 import random
 
+def generate_toy_df():
+    def generate_data(n, scope, start_year, end_year, category=None, emissions=1):
+        years = np.linspace(start_year, end_year, n, endpoint=False).astype(int)
+        data = []
+
+        for i, year in enumerate(years):
+            reduction_factor = 0.995 ** i
+            current_emissions = emissions * np.random.power(0.8) * reduction_factor
+            data.append([year, f'Scope {scope}', category, current_emissions])
+
+        return pd.DataFrame(data, columns=['year', 'scope', 'category', 'emissions'])
+
+    s1mc = generate_data(n=random.randint(30, 50), scope=1, start_year=2015, end_year=2026, category='Mobile Combustion', emissions=3)
+    s1fe = generate_data(n=random.randint(5, 25), scope=1, start_year=2015, end_year=2026, category='Fugitive Emissions', emissions=7)
+    s1sc = generate_data(n=random.randint(30, 50), scope=1, start_year=2015, end_year=2026, category='Stationary Combustion', emissions=3)
+    s2ie = generate_data(n=random.randint(30, 45), scope=2, start_year=2015, end_year=2026, category='Indirect Emissions', emissions=5)
+    s3c = [generate_data(n=random.randint(50, 100), scope=3, start_year=2015, end_year=2026, category=f'Category {i+1}') for i in range(15)]
+
+    # Combine all data into one DataFrame
+    df = pd.concat([s1mc, s1fe, s1sc, s2ie] + s3c, ignore_index=True)
+    df['emissions'] = df['emissions'] * random.randint(1000, 50000)
+    return df
+
 def create_line_simulation():
     def random_timeseries(initial_value: float, volatility: float, count: int, trend: float = 0.0) -> list:
         time_series = [initial_value]
@@ -229,8 +252,9 @@ with st.sidebar:
 
 initialize_plotly_themes()
 ts= create_line_simulation()
-st.write(ts)
+df = create_toy_df()
 
+st.write(ts)
 
 fig4 = make_grouped_line_chart(
     ts, 
@@ -242,3 +266,7 @@ fig4 = make_grouped_line_chart(
     theme=chart_theme
 )
 st.plotly_chart(fig4, use_container_width=True)
+
+
+st.write(df)
+

@@ -30,7 +30,18 @@ class ColorDiscrete:
   gecko5 = ['#004457', '#798f9a', '#e2e2e2', '#a0ebe3', '#05f1e3']
   gecko3 = ['#004457', '#798f9a', '#05f1e3']
 
-  gecko_v1 = ['#00989d', '#2438a3', '#004457', '#567583', '#ffa500', '#664200', '#757D8e']
+  gecko_v1 = [
+    '#00989d', '#2438a3', '#004457', '#567583', '#ffa500',
+    # '#664200', 
+    '#757D8e', 
+    '#00b800', '#7fe67f',
+   ]
+
+  gecko_v2 = [
+    '#9fc5e8,
+    '#d5a6bd',
+    # '
+  ]
     
 GECKO_LOGO = Image.open("./resources/BlackShortText_Logo_Horizontal-long.png")
 

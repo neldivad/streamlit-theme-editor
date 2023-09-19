@@ -38,7 +38,7 @@ class ColorDiscrete:
    ]
 
   gecko_v2 = [
-    '#9fc5e8,
+    '#9fc5e8',
     '#d5a6bd',
     # '
   ]
